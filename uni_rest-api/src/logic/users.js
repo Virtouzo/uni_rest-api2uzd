@@ -27,7 +27,7 @@ function attachItemsToUser(user) {
 			return user;
 		})
 		.catch(function(resp) {
-			if (resp.message.includes("ECONNREFUSED")) {
+			if (resp.message.includes("ECONNREFUSED") || resp.message.includes("ENOTFOUND")) {
 				return user;
 			} else {
 				throw resp.error;
