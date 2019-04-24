@@ -1,7 +1,8 @@
 const express = require("express");
-
+const usersLogic = require("../logic/users");
 const dataStorage = require("../logic/dataStorage");
 var router = express.Router();
+const Promise = require("bluebird");
 
 function dataValidator(req, res, next) {
 	req.body.balance = Number(req.body.balance);
@@ -28,7 +29,16 @@ function userExistChecker(req, res, next) {
 }
 
 router.get("/users", function(req, res, next) {
-	res.json(dataStorage.getAll());
+	const allUsers = dataStorage.getAll();
+
+	const usersWithItems = Promise.map(allUsers, function(user) {
+		return usersLogic.attachItemsToUser(user);
+	});
+
+	console.log("got all users with items");
+	console.dir(usersWithItems);
+
+	res.json(usersWithItems);
 });
 
 router.get("/users/:id", userExistChecker, function(req, res, next) {

@@ -6,9 +6,11 @@ function attachItemsToUser(user) {
 	const itemIds = user.items.map(item => item.id);
 
 	return Promise.try(() => {
-		const gennedParams = "&foo[]=" + itemIds.join("&foo[]=");
 		return req({
-			uri: `http://shop:3001/shop/multiple/?${gennedParams}`,
+			uri: `http://shop:3001/shop/multiple`,
+			body: {
+				items: itemIds
+			},
 			json: true
 		});
 	})
