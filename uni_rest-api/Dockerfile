@@ -4,8 +4,9 @@ WORKDIR /app
 
 COPY . /app
 
+RUN npm install -g yarn
 RUN yarn
 
-CMD node server.js
+CMD node ./src/server.js
 
 EXPOSE 3000

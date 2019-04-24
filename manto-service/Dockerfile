@@ -6,5 +6,5 @@ COPY . /server
 RUN npm install -g yarn
 RUN yarn
 
-EXPOSE 3000
+EXPOSE 3001
 CMD [ "yarn", "start" ]
