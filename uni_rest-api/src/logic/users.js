@@ -7,7 +7,7 @@ function attachItemsToUser(user) {
 
 	return Promise.try(() => {
 		return req({
-			uri: `http://localhost:3001/shop/multiple`,
+			uri: `http://shop:3001/shop/multiple`,
 			body: {
 				items: itemIds
 			},
@@ -17,14 +17,21 @@ function attachItemsToUser(user) {
 		.then(body => {
 			console.log("received resp");
 			console.dir(body);
-			if (body.error) throw new Error(body.message);
+			if (body.error) {
+				console.log("body error detected");
+				throw new Error(body.message);
+			}
 			console.log("received items resp: ");
 			console.dir(body);
 			user.items = body;
 			return user;
 		})
 		.catch(function(resp) {
-			throw resp.error;
+			if (resp.message.includes("ECONNREFUSED")) {
+				return user;
+			} else {
+				throw resp.error;
+			}
 		});
 }
 
