@@ -7,6 +7,7 @@ let app = express();
 
 let shop = new Shop();
 shop.add({ name: "Test1", price: 1 });
+shop.remove(1);
 shop.add({ name: "Very expensive item", price: 10 });
 shop.add({ name: "Book", price: 3.5 });
 
