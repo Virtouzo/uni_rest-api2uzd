@@ -2,6 +2,7 @@ interface Item {
 	id: number;
 	name: string;
 	price: number;
+	bought: boolean;
 }
 
 export default class Shop {
@@ -11,7 +12,8 @@ export default class Shop {
 	public add(item: Pick<Item, "name" | "price">) {
 		this.items.push({
 			...item,
-			id: this.counter++
+			id: this.counter++,
+			bought: false,
 		});
 	}
 
@@ -25,7 +27,9 @@ export default class Shop {
 
 	public remove(id: number) {
 		let i = this.findItemIndex(id);
-		if (i != -1) this.items.splice(i, 1);
+		if (i == -1) throw new Error('Invalid item id!');
+		if (this.items[i].bought) throw new Error('Item was already bought!');
+		this.items[i].bought = true;
 	}
 
 	public get() {
