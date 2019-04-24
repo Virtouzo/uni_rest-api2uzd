@@ -19,3 +19,7 @@ export const RequestItem = t.type({
 	name: t.string,
 	price: t.number
 });
+
+export const ItemidsValType = t.type({
+	items: t.array(t.number)
+});
