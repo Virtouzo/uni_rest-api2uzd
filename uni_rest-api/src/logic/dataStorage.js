@@ -2,7 +2,7 @@ const _ = require("lodash");
 const extend = require("extend");
 
 const data = {
-	1: { first_name: "Rokas", balance: 123, items: [] },
+	1: { first_name: "Rokas", balance: 123, items: [{ id: 1 }] },
 	2: { first_name: "Tomas", balance: 555, items: [] },
 	3: { first_name: "DigiDo", balance: 323, items: [] }
 };

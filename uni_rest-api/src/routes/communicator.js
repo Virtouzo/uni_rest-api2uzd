@@ -34,7 +34,7 @@ function bodyValidator(req, res, next) {
 	next();
 }
 
-router.post("/buy", bodyValidator, function(req, res, next) {
+router.post("/item", bodyValidator, function(req, res, next) {
 	const itemId = req.body.itemId;
 	const userId = req.body.userId;
 
