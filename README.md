@@ -6,17 +6,17 @@ docker-compose up
 # Endpointai
 
 
-Parduotuves daiktu isgavimas: 
+**Parduotuves daiktu isgavimas:**
 ```
 GET localhost/items
 ```
 
-Parduotuves daiktu pirkimas 
+**Parduotuves daiktu pirkimas**
 ```
 POST localhost/buy
 Body: 
 {
-'userId': number,
-'itemId': number
+  "userId": number,
+  "itemId": number
 }
 ```
