@@ -67,7 +67,7 @@
 
     <wsdl:service name="ShopService">
         <wsdl:port name="ShopPort" binding="tns:ShopBinding">
-            <soap:address location="http://localhost:8000/wsdl"/>
+            <soap:address location="http://localhost:3001/wsdl"/>
         </wsdl:port>
     </wsdl:service>
 
