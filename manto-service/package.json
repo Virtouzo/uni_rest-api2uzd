@@ -7,6 +7,7 @@
     "@types/express": "^4.16.1",
     "express": "^4.16.4",
     "io-ts": "^1.8.2",
+    "soap": "^0.27.1",
     "ts-node": "^8.0.3",
     "typescript": "^3.3.3333"
   },
